@@ -1,5 +1,42 @@
-@import 'variables';
+@use 'sass:color';
 
+// Variables
+$primary-green: #2A5A3B;
+$secondary-gold: #C5A572;
+$background-light: #F5F5F5;
+$white: #FFFFFF;
+$black: #333333;
+
+// Typography
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+
+// Breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1024px;
+$large-desktop: 1200px;
+
+// Mixins
+@mixin mobile {
+  @media (max-width: #{$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) and (max-width: #{$desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// Reset
 * {
   margin: 0;
   padding: 0;
@@ -8,81 +45,154 @@
 
 body {
   font-family: $font-body;
-  background-color: $background;
-  color: $text-dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $background-light;
+  color: $black;
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-heading;
+  font-weight: bold;
+  color: $primary-green;
   margin-bottom: 1rem;
 }
 
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+// Container
 .container {
-  max-width: $container-max;
+  width: 100%;
+  max-width: $large-desktop;
   margin: 0 auto;
-  padding: 0 $grid-spacing;
+  padding: 0 1rem;
 }
 
-.btn {
-  height: 48px;
-  padding: 0 24px;
+// Buttons
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
   border: none;
   cursor: pointer;
-  font-family: $font-heading;
-  font-weight: 600;
-  transition: all 0.3s ease;
 
-  &-primary {
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &--primary {
     background-color: $primary-green;
     color: $white;
-    
+
     &:hover {
-      background-color: darken($primary-green, 10%);
+      background-color: color.adjust($primary-green, $lightness: -10%);
     }
   }
 
-  &-secondary {
+  &--secondary {
     background-color: $secondary-gold;
     color: $white;
-    
+
     &:hover {
-      background-color: darken($secondary-gold, 10%);
+      background-color: color.adjust($secondary-gold, $lightness: -10%);
     }
   }
 }
 
-
+// App Layout
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #F5F5F5;
 }
 
 .main-content {
   flex: 1;
-  padding-top: 70px; // Height of the navbar
-  
-  @media (max-width: 767px) {
-    padding-top: 60px; // Mobile navbar height
+  padding-top: 70px;
+
+  @include mobile {
+    padding-top: 60px;
   }
 }
 
-// Reset styles
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+// Form Elements
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  font-family: $font-body;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-green;
+  }
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+// Grid System
+.grid {
+  display: grid;
+  gap: 1.5rem;
+
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+    @include mobile { grid-template-columns: 1fr; }
+  }
+
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+    @include mobile { grid-template-columns: 1fr; }
+    @include tablet { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+    @include mobile { grid-template-columns: 1fr; }
+    @include tablet { grid-template-columns: repeat(2, 1fr); }
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+// Utility Classes
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.p-1 { padding: 1rem; }
+.p-2 { padding: 2rem; }
+
+// Animation Classes
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
 }
