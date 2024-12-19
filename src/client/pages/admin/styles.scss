@@ -1,0 +1,646 @@
+.admin-login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5F5F5;
+    padding: 1rem;
+  
+    .login-container {
+      background-color: #FFFFFF;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+  
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        color: #2A5A3B;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+  
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  
+    .input-group {
+      position: relative;
+      
+      svg {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666666;
+      }
+  
+      input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 3rem;
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          outline: none;
+          border-color: #2A5A3B;
+        }
+  
+        &::placeholder {
+          color: #999999;
+        }
+      }
+    }
+  
+    .error-message {
+      color: #DC2626;
+      font-size: 0.875rem;
+      text-align: center;
+    }
+  
+    .login-button {
+      background-color: #2A5A3B;
+      color: #FFFFFF;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: darken(#2A5A3B, 10%);
+      }
+    }
+  }
+
+
+  .admin-dashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      color: #2A5A3B;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+  
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+  
+    .dashboard-card {
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: #333333;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .card-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background-color: #2A5A3B;
+        border-radius: 8px;
+        margin-right: 1rem;
+        color: #FFFFFF;
+      }
+  
+      .card-content {
+        flex: 1;
+  
+        h3 {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 1.25rem;
+          margin-bottom: 0.25rem;
+          color: #2A5A3B;
+        }
+  
+        p {
+          font-size: 0.875rem;
+          color: #666666;
+        }
+      }
+  
+      .card-arrow {
+        color: #C5A572;
+      }
+    }
+  
+    @media (max-width: 767px) {
+      padding: 1rem;
+  
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+
+  .admin-form-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      color: #2A5A3B;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+  }
+  
+  .tournament-form {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+    .form-group {
+      margin-bottom: 1.5rem;
+  
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #333333;
+      }
+  
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          outline: none;
+          border-color: #2A5A3B;
+        }
+      }
+  
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+  
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+  
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    .input-icon {
+      position: relative;
+  
+      svg {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666666;
+      }
+  
+      input {
+        padding-left: 2.5rem;
+      }
+    }
+  
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2rem;
+  
+      button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+  
+      .cancel-button {
+        background-color: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        color: #666666;
+  
+        &:hover {
+          background-color: #F5F5F5;
+        }
+      }
+  
+      .submit-button {
+        background-color: #2A5A3B;
+        border: none;
+        color: #FFFFFF;
+  
+        &:hover {
+          background-color: darken(#2A5A3B, 10%);
+        }
+      }
+    }
+  }
+
+  .admin-tournament-list {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+  
+      h1 {
+        margin: 0;
+      }
+  
+      .create-button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #2A5A3B;
+        color: #FFFFFF;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: darken(#2A5A3B, 10%);
+        }
+      }
+    }
+  
+    .filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+  
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
+  
+      .search-box, .filter-dropdown {
+        position: relative;
+        flex: 1;
+  
+        svg {
+          position: absolute;
+          left: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #666666;
+        }
+  
+        input, select {
+          width: 100%;
+          padding: 0.75rem 1rem 0.75rem 2.5rem;
+          border: 1px solid #DDDDDD;
+          border-radius: 4px;
+          font-size: 1rem;
+  
+          &:focus {
+            outline: none;
+            border-color: #2A5A3B;
+          }
+        }
+      }
+    }
+  
+    .tournament-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+  
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    .tournament-card {
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+  
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 1rem;
+  
+        h3 {
+          font-size: 1.25rem;
+          margin: 0;
+          color: #2A5A3B;
+        }
+  
+        .status-badge {
+          font-size: 0.75rem;
+          padding: 0.25rem 0.5rem;
+          border-radius: 999px;
+          font-weight: 600;
+          text-transform: uppercase;
+  
+          &.upcoming {
+            background-color: #E5F6FD;
+            color: #0369A1;
+          }
+  
+          &.in-progress {
+            background-color: #FEF3C7;
+            color: #B45309;
+          }
+  
+          &.completed {
+            background-color: #DCFCE7;
+            color: #166534;
+          }
+        }
+      }
+  
+      .card-details {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+  
+        .detail-item {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #666666;
+          font-size: 0.875rem;
+        }
+      }
+  
+      .card-actions {
+        display: flex;
+        gap: 0.5rem;
+  
+        .action-button {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          padding: 0.5rem;
+          border-radius: 4px;
+          font-size: 0.875rem;
+          text-decoration: none;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &.leaderboard {
+            background-color: #F3F4F6;
+            color: #374151;
+  
+            &:hover {
+              background-color: darken(#F3F4F6, 5%);
+            }
+          }
+  
+          &.edit {
+            background-color: #2A5A3B;
+            color: #FFFFFF;
+  
+            &:hover {
+              background-color: darken(#2A5A3B, 10%);
+            }
+          }
+  
+          &.delete {
+            background-color: #FEE2E2;
+            color: #DC2626;
+  
+            &:hover {
+              background-color: darken(#FEE2E2, 5%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .form-header {
+    margin-bottom: 2rem;
+  
+    .warning-banner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #FEF3C7;
+      color: #B45309;
+      padding: 0.75rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .field-hint {
+    display: block;
+    font-size: 0.75rem;
+    color: #666666;
+    margin-top: 0.25rem;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    font-size: 1.125rem;
+    color: #2A5A3B;
+  }
+
+
+  .tournament-leaderboard {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  
+    .leaderboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+  
+      h1 {
+        margin: 0;
+        color: #2A5A3B;
+      }
+  
+      .tournament-date {
+        margin: 0.5rem 0 0;
+        color: #666666;
+      }
+  
+      .header-actions {
+        display: flex;
+        gap: 0.5rem;
+  
+        .action-button {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1rem;
+          background-color: #F3F4F6;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: darken(#F3F4F6, 5%);
+          }
+        }
+  
+        .save-button {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1rem;
+          background-color: #2A5A3B;
+          color: #FFFFFF;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: darken(#2A5A3B, 10%);
+          }
+        }
+      }
+    }
+  
+    .leaderboard-table-container {
+      overflow-x: auto;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+  
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      white-space: nowrap;
+  
+      th, td {
+        padding: 0.75rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid #EEEEEE;
+      }
+  
+      th {
+        background-color: #F9FAFB;
+        font-weight: 600;
+        color: #374151;
+      }
+  
+      .position-cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+  
+        .leader-icon {
+          color: #C5A572;
+        }
+      }
+  
+      .leader {
+        background-color: #F0FDF4;
+      }
+  
+      input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+        text-align: center;
+  
+        &:focus {
+          outline: none;
+          border-color: #2A5A3B;
+        }
+      }
+  
+      .score-input {
+        width: 3rem;
+      }
+  
+      .handicap-input {
+        width: 4rem;
+      }
+  
+      .total-cell {
+        font-weight: 600;
+        background-color: #F9FAFB;
+      }
+  
+      .delete-button {
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        color: #DC2626;
+        cursor: pointer;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: darken(#DC2626, 10%);
+        }
+      }
+    }
+  
+    .add-player-button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #F3F4F6;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: darken(#F3F4F6, 5%);
+      }
+    }
+  }

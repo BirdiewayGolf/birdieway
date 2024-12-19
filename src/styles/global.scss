@@ -52,3 +52,37 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
+
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F5F5;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 70px; // Height of the navbar
+  
+  @media (max-width: 767px) {
+    padding-top: 60px; // Mobile navbar height
+  }
+}
+
+// Reset styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}

@@ -1,0 +1,42 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .home {
+    .tournament-section {
+      padding: 4rem 0;
+      
+      h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #2A5A3B;
+      }
+    }
+  
+    .tournament-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+  }
+  
+  .about, .contact {
+    padding: 4rem 0;
+  
+    h1 {
+      color: #2A5A3B;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .tournament-list, .tournament-details {
+    padding: 4rem 0;
+  
+    h1 {
+      color: #2A5A3B;
+      margin-bottom: 2rem;
+      text-transform: capitalize;
+    }
+  }
